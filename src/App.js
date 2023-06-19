@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import {useState} from 'react';
+const initialState = [
+  {
+    id: 1,
+    descricao: "Descansar"
+  },
+  {
+    id: 2,
+    descricao: "Jogar futbol"
+  }
+]
 function App() {
+  const [atividades, setAtividades] = useState(initialState);
+  
+  function addAtividade(){
+    const atividade = {
+      id: document.getElementById('id').value,
+      descricao: document.getElementById('descricao').value
+    }
+    //criando Hook, cria um novo objeto e atualiza com um novo adicionado no formulario
+    setAtividades([...atividades, { ...atividade }])
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <form>
+        <input id='id' type='text'/>
+        <input id='descricao' type='text'/>
+        <button onClick={addAtividade} type='button'>Adicionar atividade</button>
+      </form>
+      <div className="mt-3">
+        <ul className="list-group">
+            {atividades.map(ativ => (
+              <li key={ativ.id} className="list-group-item">{ativ.id} - {ativ.descricao} </li>
+            ))
+            }
+        </ul>
+        
+      </div>
+    </>
+    
   );
 }
 
