@@ -20,10 +20,11 @@ const initialState = [
 function App() {
   //observacao : Codigo para pegar maior de uma lista e adiciona 1 no input = value={Math.max.apply(Math,atividades.map((item) => item.id)) + 1}
   const [atividades, setAtividades] = useState(initialState);
+  const[ativ,setAtiv] = useState({});
   
   function addAtividade(){
     const atividade = {
-      id: document.getElementById('id').value,
+      id: Math.max.apply(Math,atividades.map((item) => item.id)) + 1,
       prioridade: document.getElementById('prioridade').value,
       titulo: document.getElementById('titulo').value,
       descricao: document.getElementById('descricao').value
@@ -38,15 +39,22 @@ function App() {
     setAtividades([...atividadesAtualizar]);
 
   }
+  function pegarAtividade(id){
+    const atividade  = atividades.filter((at) => at.id === id);
+    console.log(atividade);
+    setAtiv(atividade[0])
+  }
   return (
     <>
       <AtividadeForm
         atividades={atividades}
         addAtividade={addAtividade}
+        ativSelecionada={ativ}
       />
       <Atividades
         atividades={atividades}
         deletarAtividade={deletarAtividade}
+        pegarAtividade={pegarAtividade}
       
       />
       
