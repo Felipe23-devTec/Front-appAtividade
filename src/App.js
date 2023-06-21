@@ -56,6 +56,11 @@ function App() {
         
     }
   }
+  function deletarAtividade(id){
+    const atividadesAtualizar = atividades.filter(atividade => atividade.id !== id);
+    setAtividades([...atividadesAtualizar]);
+
+  }
   return (
     <>
       <form className='row g-3'>
@@ -107,7 +112,7 @@ function App() {
                       <i className='fas fa-pen me-2'></i>
                       Editar
                     </button>
-                    <button className='btn btn-outline-danger'>
+                    <button className='btn btn-outline-danger' onClick={() => deletarAtividade(ativ.id)}>
                       <i className='fas fa-trash me-2'></i>
                       Deletar
                     </button>
