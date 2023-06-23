@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-
 export default function AtividadeForm(props) {
     const atividadeInicial = {
         id: 0,
