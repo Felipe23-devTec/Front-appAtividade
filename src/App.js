@@ -114,6 +114,7 @@ function App() {
           <AtividadeForm
           atividades={atividades}
           addAtividade={addAtividade}
+          //Passo a atividade selecionada para o form pela funcao pegar atividade
           ativSelecionada={ativ}
           atualizaAtividade={atualizaAtividade}
           cancelarAtividade={cancelarAtividade}

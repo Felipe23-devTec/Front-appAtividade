@@ -6,13 +6,15 @@ export default function AtividadeForm(props) {
         prioridade: 0,
         descricao: ''
     }
+    //Armazena o form da atividade no preenchimento, tanto se for para editar ou adicionar
     const [atividade, setAtividade] = useState(atividadeAtual());
     useEffect(() =>{
         if(props.ativSelecionada.id !== 0){
             setAtividade(props.ativSelecionada);
         }
     }, [props.ativSelecionada]);
-
+    //no evento de onchange de cada campo do formulario para enviar, e nesse caso foi criado um use state para armazenar
+    //a atividade preenchida no formulario que é um modal
     const inputTextHandler = (e) =>{
         const {name, value} = e.target;
         console.log(value);
