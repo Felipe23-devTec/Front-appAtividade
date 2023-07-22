@@ -1,10 +1,11 @@
 
 import './App.css';
 import {useEffect, useState} from 'react';
-import AtividadeForm from './components/AtividadeForm';
-import Atividades from './components/Atividades';
+import AtividadeForm from './pages/atividades/AtividadeForm';
+import Atividades from './pages/atividades/Atividades';
 import api from './api/atividade';
 import {Button, Modal} from 'react-bootstrap';
+//import 'bootswatch/dist/cosmo/bootstrap.min.css' //slate
 function App() {
   //codigo para exibicao de modal
   const [showAtividadeModal, setShowAtividadeModal] = useState(false);
