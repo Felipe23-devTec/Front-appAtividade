@@ -1,14 +1,26 @@
 
 import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Atividade from './pages/atividades/Atividade';
 //import 'bootswatch/dist/cosmo/bootstrap.min.css' //slate
-function App() {
+export default function App() {
   return (
     <>
-      <Atividade/>
+      <Route path='/atividades' component={Atividade}/>
+      <Route path='/clientes' component={Cliente}/>
+      <Route path='/home' component={Home}/>
     </>
     
   );
 }
+const Cliente = () =>(
+  <div>
+     <h2>Cliente</h2>
+  </div>
+)
 
-export default App;
+const Home = () =>(
+  <div>
+     <h2>Home</h2>
+  </div>
+)

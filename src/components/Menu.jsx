@@ -1,18 +1,19 @@
 
 import {Navbar, Container,Nav, NavDropdown} from 'react-bootstrap';
+import {NavLink} from 'react-router-dom';
 import './menu.css';
 export default function Menu() {
   return (
     
     <Navbar expand="lg" bg='primary'>
     <Container>
-      <Navbar.Brand href="#" className='cor_nav'>Sistema</Navbar.Brand>
+      <Navbar.Brand as={NavLink} to='/home' className='cor_nav'>Sistema</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav
           className="me-auto">
-            <Nav.Link href="#action1" className='cor_nav'>Clientes</Nav.Link>
-            <Nav.Link href="#action2" className='cor_nav'>Atividades</Nav.Link>
+            <Nav.Link as={NavLink} to='/clientes' className='cor_nav'>Clientes</Nav.Link>
+            <Nav.Link as={NavLink} to='/atividades' className='cor_nav'>Atividades</Nav.Link>
         </Nav>
         <Nav>
             <NavDropdown align='end' title="Acesse" id="navbarScrollingDropdown" className='cor_nav text-white'>
